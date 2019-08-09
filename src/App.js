@@ -7,13 +7,19 @@ function App() {
   const [index, setIndex] = React.useState(0)
   return (
     <Gallery 
+      style={{
+        height:'100vh',
+        width:'100vw',
+        background:'black'
+
+      }}
       index={index}
       onRequestChange={i => {
         setIndex(i)
       }}
     >
       {images.map(image => (
-          <GalleryImage key={image.url} src={image.url} />
+          <GalleryImage objectFit="contain" key={image.url} src={image.url} />
           )
         )
       }
