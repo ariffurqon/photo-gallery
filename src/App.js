@@ -4,13 +4,19 @@ import { images } from "./images";
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
 
 function App() {
+  const [index, setIndex] = React.useState(0)
   return (
-    <Gallery index={0}>
+    <Gallery 
+      index={index}
+      onRequestChange={i => {
+        setIndex(i)
+      }}
+    >
       {images.map(image => (
-        <div>
-        <GalleryImage key={image.url} src={image.url} />
-        </div>
-        ))}
+          <GalleryImage key={image.url} src={image.url} />
+          )
+        )
+      }
     </Gallery>
 
   );
